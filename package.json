@@ -1,0 +1,8 @@
+{
+  "name": "onboard-tracker",
+  "version": "1.0.0",
+  "description": "Internal tool to track customer onboarding",
+  "scripts": {
+    "start": "bun run server.ts"
+  }
+}
