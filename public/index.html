@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onboard · Customer Onboarding Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">◈</div>
+        <div class="brand-name">Onboard</div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="board"><span class="ico">▤</span> Board</button>
+        <button class="nav-item" data-view="table"><span class="ico">☰</span> All customers</button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="hint">Internal tool · CS team</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="view-title">Onboarding board</h1>
+          <p id="view-sub" class="muted">Track every account from kickoff to live.</p>
+        </div>
+        <div class="topbar-right">
+          <div class="search">
+            <span class="search-ico">⌕</span>
+            <input id="search" type="search" placeholder="Search company or contact…" />
+          </div>
+          <select id="filter-owner" class="select-inline" title="Filter by owner">
+            <option value="">All owners</option>
+          </select>
+          <button id="add-btn" class="btn btn-primary">＋ New customer</button>
+        </div>
+      </header>
+
+      <!-- Stats -->
+      <section class="stats" id="stats"></section>
+
+      <!-- Views -->
+      <section id="board-view" class="board"></section>
+      <section id="table-view" class="table-wrap hidden"></section>
+    </main>
+  </div>
+
+  <!-- Detail drawer -->
+  <div id="drawer-overlay" class="overlay hidden"></div>
+  <aside id="drawer" class="drawer hidden" aria-hidden="true"></aside>
+
+  <!-- Add / edit modal -->
+  <div id="modal-overlay" class="overlay hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h2 id="modal-title">New customer</h2>
+        <button class="icon-btn" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <form id="customer-form" class="form">
+        <input type="hidden" name="id" />
+        <div class="field">
+          <label>Company <span class="req">*</span></label>
+          <input name="company" required placeholder="Acme Inc." />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Primary contact</label>
+            <input name="contact_name" placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label>Contact email</label>
+            <input name="contact_email" type="email" placeholder="jane@acme.com" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Owner (CSM)</label>
+            <input name="owner" list="owner-list" placeholder="Sunny Lee" />
+            <datalist id="owner-list"></datalist>
+          </div>
+          <div class="field">
+            <label>Plan</label>
+            <select name="plan">
+              <option>Starter</option>
+              <option>Growth</option>
+              <option>Enterprise</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label>Stage</label>
+            <select name="stage" id="stage-select"></select>
+          </div>
+          <div class="field">
+            <label>Health</label>
+            <select name="health">
+              <option value="on_track">On track</option>
+              <option value="at_risk">At risk</option>
+              <option value="delayed">Delayed</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="field">
+            <label>ARR ($)</label>
+            <input name="arr" type="number" min="0" step="1000" placeholder="0" />
+          </div>
+          <div class="field">
+            <label>Start date</label>
+            <input name="start_date" type="date" />
+          </div>
+          <div class="field">
+            <label>Target live</label>
+            <input name="target_date" type="date" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Notes</label>
+          <textarea name="notes" rows="2" placeholder="Context, risks, next steps…"></textarea>
+        </div>
+        <div class="modal-foot">
+          <button type="button" class="btn btn-ghost" id="modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="modal-save">Create customer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
