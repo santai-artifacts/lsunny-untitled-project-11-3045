@@ -15,6 +15,9 @@
   --shadow-lg: 0 20px 48px rgba(20, 22, 40, 0.16);
   --radius: 12px;
   --radius-sm: 8px;
+  --track: #eef0f4;
+  --scroll: #d4d7e0;
+  --fill: linear-gradient(90deg, #6366f1, #8b5cf6);
   /* stage / health accents */
   --ok: #0d9f6e;
   --ok-soft: #e2f6ee;
@@ -190,8 +193,8 @@ input, select, textarea { font-family: inherit; font-size: 14px; }
 .chip.plan-Growth { background: #e6f2ff; color: #1d64c9; border-color: #d5e8fd; }
 .chip.plan-Starter { background: var(--surface-2); color: var(--muted); }
 .progress { margin-top: 11px; }
-.progress-bar { height: 6px; background: #eef0f4; border-radius: 20px; overflow: hidden; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, #6366f1, #8b5cf6); border-radius: 20px; transition: width .3s; }
+.progress-bar { height: 6px; background: var(--track); border-radius: 20px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--fill); border-radius: 20px; transition: width .3s; }
 .progress-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 5px; }
 .card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 11px; }
 .owner { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
@@ -232,8 +235,8 @@ tbody tr { cursor: pointer; transition: background .12s; }
 tbody tr:hover { background: var(--surface-2); }
 .t-company { font-weight: 600; }
 .t-sub { font-size: 12px; color: var(--muted); }
-.mini-bar { width: 90px; height: 6px; background: #eef0f4; border-radius: 20px; overflow: hidden; display: inline-block; vertical-align: middle; }
-.mini-fill { height: 100%; background: linear-gradient(90deg,#6366f1,#8b5cf6); }
+.mini-bar { width: 90px; height: 6px; background: var(--track); border-radius: 20px; overflow: hidden; display: inline-block; vertical-align: middle; }
+.mini-fill { height: 100%; background: var(--fill); }
 .stage-tag { font-size: 12px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
 
 /* ---- Overlay / Modal ---- */
