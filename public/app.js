@@ -501,7 +501,7 @@ $$(".nav-item").forEach((btn) => btn.addEventListener("click", () => {
   $$(".nav-item").forEach((b) => b.classList.remove("active"));
   btn.classList.add("active");
   VIEW = btn.dataset.view;
-  $("#view-title").textContent = VIEW === "board" ? "Onboarding board" : "All customers";
+  $("#view-title").textContent = VIEW === "board" ? "Board" : "All customers";
   $("#view-sub").textContent = VIEW === "board" ? "Track every account from kickoff to live." : "Every account and where it stands.";
   render();
 }));
